@@ -1,0 +1,48 @@
+import {Colors} from '@constants/colors';
+import {useAsyncStorage} from '@hooks/useAsyncStorage';
+import {useDeviceTheme} from '@hooks/useDeviceTheme';
+import {ThemeProvider as RestyleProvider} from '@shopify/restyle';
+import {theme as restyleTheme} from '@styles/theme';
+import {TChild, TColorPalettes} from '@types';
+import React, {useEffect} from 'react';
+import {ThemeContext} from '../context/index';
+
+const ThemeProvider = ({children}: TChild) => {
+  const deviceTheme = useDeviceTheme();
+  const {setValue, storedValue} = useAsyncStorage('theme', '');
+
+  const currentTheme = storedValue ? storedValue : deviceTheme;
+
+  const toggleTheme = () => {
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setValue('theme', newTheme);
+    return newTheme;
+  };
+
+  const colors = storedValue === 'light' ? Colors.light : Colors.dark;
+  const combinedTheme = {
+    ...restyleTheme,
+    colors,
+  };
+
+  useEffect(() => {
+    setValue('theme', currentTheme as string);
+    /** Don't need to add setValue as dependency */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <RestyleProvider theme={combinedTheme}>
+      <ThemeContext.Provider
+        value={{
+          colors,
+          toggleTheme,
+          theme: storedValue as keyof TColorPalettes,
+        }}>
+        {children}
+      </ThemeContext.Provider>
+    </RestyleProvider>
+  );
+};
+
+export {ThemeProvider};
