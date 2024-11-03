@@ -20,6 +20,7 @@ export function ProductDetails({product}: IProductDetails) {
         <FlatList
           horizontal
           pagingEnabled
+          bounces={false}
           ItemSeparatorComponent={Divider}
           contentContainerStyle={styles.sliderWrapper}
           style={styles.slider}

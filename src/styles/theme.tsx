@@ -1,4 +1,5 @@
 import {Colors} from '@constants/colors';
+import {isIOS} from '@hooks/isIOS';
 import {
   VariantProps,
   createBox,
@@ -8,11 +9,21 @@ import {
   createVariant,
 } from '@shopify/restyle';
 
-export const ComfortaaRegular = 'ComfortaaRegular';
-export const ComfortaaBold = 'ComfortaaBold';
-export const ComfortaaSemiBold = 'ComfortaaSemiBold';
-export const ComfortaaMedium = 'ComfortaaMedium';
-export const ComfortaaLight = 'ComfortaaLight';
+export const ComfortaaRegular = 'Comfortaa-Regular';
+export const ComfortaaBold = 'Comfortaa-Bold';
+export const ComfortaaSemiBold = 'Comfortaa-SemiBold';
+export const ComfortaaMedium = 'Comfortaa-Medium';
+export const ComfortaaLight = 'Comfortaa-Light';
+
+export const fontFamilies = {
+  COMFORTAA: {
+    regular: isIOS() ? 'Comfortaa-Regular' : 'ComfortaaRegular',
+    semiBold: isIOS() ? 'Comfortaa-SemiBold' : 'ComfortaaSemiBold',
+    bold: isIOS() ? 'Comfortaa-Bold' : 'ComfortaaBold',
+    medium: isIOS() ? 'Comfortaa-Medium' : 'ComfortaaMedium',
+    light: isIOS() ? 'Comfortaa-Light' : 'ComfortaaLight',
+  },
+};
 
 export const theme = createTheme({
   colors: {
@@ -45,210 +56,240 @@ export const theme = createTheme({
     xl: 150,
   },
   textVariants: {
-    defaults: {fontFamily: ComfortaaRegular},
+    defaults: {fontFamily: fontFamilies.COMFORTAA.regular},
     regular: {
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     bold: {
       fontSize: 16,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     semiBold: {
       fontSize: 16,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     semiBoldSystem: {
       fontSize: 16,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text10: {
       fontSize: 10,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text10SemiBold: {
       fontSize: 10,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     text11: {
       fontSize: 11,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text12: {
       fontSize: 12,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text12SemiBold: {
       fontSize: 12,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     text12Bold: {
       fontSize: 12,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text13: {
       fontSize: 13,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text13System: {
       fontSize: 13,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text13Bold: {
       fontSize: 13,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text13SemiBold: {
       fontSize: 13,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     text14: {
       fontSize: 14,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text14Bold: {
       fontSize: 14,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text14SemiBold: {
       fontSize: 14,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     text14System: {
       fontSize: 14,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text14SemiBoldSystem: {
       fontSize: 14,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     text15: {
       fontSize: 15,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text15System: {
       fontSize: 15,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text15SemiBold: {
       fontSize: 15,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     text16S: {
       fontSize: 16,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     text16: {
       fontSize: 16,
       lineHeight: 24,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text16System: {
       fontSize: 16,
       lineHeight: 24,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     text16Bold: {
       fontSize: 16,
       lineHeight: 24,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
+    },
+    text16Light: {
+      fontSize: 16,
+      lineHeight: 24,
+      fontFamily: fontFamilies.COMFORTAA.light,
     },
     text16SemiBold: {
       fontSize: 16,
       lineHeight: 24,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
 
     text17SemiBold: {
       fontSize: 17,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text18: {
       fontSize: 18,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
+    },
+    text18Light: {
+      fontSize: 18,
+      fontFamily: fontFamilies.COMFORTAA.light,
     },
     text18SemiBold: {
       fontSize: 18,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     text18Bold: {
       fontSize: 18,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text18BoldSystem: {
       fontSize: 18,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text20: {
       fontSize: 20,
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
+    },
+    text20Light: {
+      fontSize: 20,
+      fontFamily: fontFamilies.COMFORTAA.light,
     },
     text20SemiBold: {
       fontSize: 20,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
 
     text20Bold: {
       fontSize: 20,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text20BoldSystem: {
       fontSize: 20,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
 
     text22: {
       fontSize: 22,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
+    },
+
+    text22Light: {
+      fontSize: 22,
+      fontFamily: fontFamilies.COMFORTAA.light,
     },
 
     text22Bold: {
       fontSize: 22,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
 
     text22BoldSystem: {
       fontSize: 22,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text22SemiBoldSystem: {
       fontSize: 22,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     text24: {
       fontSize: 24,
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
+    },
+    text24Light: {
+      fontSize: 24,
+      fontFamily: fontFamilies.COMFORTAA.light,
     },
     text24Bold: {
       fontSize: 24,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     text26Bold: {
       fontSize: 26,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
+    },
+    text26Light: {
+      fontSize: 26,
+      fontFamily: fontFamilies.COMFORTAA.light,
     },
     text28Bold: {
       fontSize: 28,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
+    },
+    text28Light: {
+      fontSize: 28,
+      fontFamily: fontFamilies.COMFORTAA.light,
     },
     text28BoldSystem: {
       fontSize: 28,
-      fontFamily: ComfortaaBold,
+      fontFamily: fontFamilies.COMFORTAA.bold,
     },
     w600: {
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     w600SemiBold: {
-      fontFamily: ComfortaaSemiBold,
+      fontFamily: fontFamilies.COMFORTAA.semiBold,
     },
     w700: {
       color: 'textHeadlines',
       fontWeight: '700',
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
     w800: {
       color: 'textHeadlines',
       fontWeight: '800',
-      fontFamily: ComfortaaRegular,
+      fontFamily: fontFamilies.COMFORTAA.regular,
     },
   },
   boxVariants: {

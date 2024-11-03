@@ -3,7 +3,6 @@ import {useTheme} from '@hooks/useTheme';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SCREEN_OPTIONS} from '@utils/screenOptions';
 import React, {FunctionComponent} from 'react';
-
 const Tab = createBottomTabNavigator();
 
 export const TabNavigator = () => {
@@ -16,10 +15,16 @@ export const TabNavigator = () => {
     },
     headerTintColor: colors.textPrimary,
     tabBarStyle: {
-      paddingVertical: 12,
-      height: 55,
+      height: 50,
+      alignSelft: 'center',
+      paddingTop: 10,
+      position: 'absolute',
       backgroundColor: colors.primary,
-      borderTopWidth: 1,
+      borderColor: colors.textPrimary,
+      borderTopWidth: 0,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      boxShadow: '0px 0px 6px rgba(255, 255, 255, 1)',
     },
   };
 

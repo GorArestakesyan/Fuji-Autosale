@@ -37,14 +37,14 @@ export const ProductCard = ({product}: IProduct) => {
         />
 
         <Box pt={'m'}>
-          <Text variant={'text16'} color={'textSecondary'}>
+          <Text variant={'text16'} color={'textPrimary'}>
             {product.title}
           </Text>
           <Text
             letterSpacing={1}
             variant={'text18Bold'}
             my={'s'}
-            color={'textPrimary'}>
+            color={'textSecondary'}>
             ${product.price}
           </Text>
         </Box>
