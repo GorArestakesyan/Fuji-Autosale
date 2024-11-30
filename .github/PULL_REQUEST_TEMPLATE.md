@@ -2,9 +2,9 @@
 
 <!-- Please provide a summary of the changes you have made. -->
 
-## Related Issue
+## Task Link
 
-<!-- Link to the related issue if applicable, e.g., #123 -->
+<!-- Link to the related Jira task. Example: [DEV-123](https://your-jira-instance.atlassian.net/browse/DEV-123) -->
 
 ## Type of Change
 
@@ -13,10 +13,6 @@
 - [ ] Breaking change
 - [ ] Documentation update
 - [ ] Other (Please describe):
-
-## How to Test
-
-<!-- Provide a description of how to test your changes. -->
 
 ## Screenshots
 
