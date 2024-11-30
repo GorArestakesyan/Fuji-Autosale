@@ -13,6 +13,7 @@ This is a React Native project named **GShop**.
 - [Environment Setup](#environment-setup)
 - [Development Guidelines](#development-guidelines)
 - [Husky Setup](#husky-setup)
+- [Pull Request Template](#pull-request-template)
 
 ## Project Overview
 
@@ -165,6 +166,39 @@ Husky is configured to ensure good practices during commits and branch creation.
   - `hotfix/DEV-125`
 
 If the commit message or branch name does not match the required pattern, the commit will be rejected, ensuring consistency across the project.
+
+## Pull Request Template
+
+Here’s the format for the pull request template:
+
+### Description
+
+Provide a concise summary of the changes you've made.
+
+### Task Link
+
+Link to the related task ticket (e.g., [Task Link](https://your-task-link.com)).
+
+### Type of Change
+
+- [ ] Bug fix
+- [ ] Feature enhancement
+- [ ] New feature
+- [ ] Refactoring
+- [ ] Documentation update
+- [ ] Other (Please describe):
+
+### Screenshots
+
+If applicable, include screenshots or video to demonstrate the changes.
+
+### Checklist
+
+- [ ] I have tested my changes locally.
+- [ ] I have updated the documentation (if applicable).
+- [ ] I have added necessary tests (if applicable).
+- [ ] All tests pass (if applicable).
+- [ ] The code follows the repository's style guide.
 
 ---
 
