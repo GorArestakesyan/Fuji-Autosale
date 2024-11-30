@@ -12,6 +12,7 @@ This is a React Native project named **GShop**.
 - [TypeScript Configuration](#typescript-configuration)
 - [Environment Setup](#environment-setup)
 - [Development Guidelines](#development-guidelines)
+- [Husky Setup](#husky-setup)
 
 ## Project Overview
 
@@ -146,6 +147,24 @@ The TypeScript configuration file (`tsconfig.json`) extends React Native's defau
 - Use **React Navigation** for navigation between screens.
 - Use **Reanimated** and **Lottie** for animations.
 - Test components and business logic using **Jest**.
+
+## Husky Setup
+
+Husky is configured to ensure good practices during commits and branch creation.
+
+- **Commit Message Validation**: A pre-commit hook ensures that commit messages follow the format `feature/DEV-<ticketNumber>: <commit message>`, `fix/DEV-<ticketNumber>: <commit message>`, or `hotfix/DEV-<ticketNumber>: <commit message>`. Example:
+
+  - `feature/DEV-123: Add login form`
+  - `fix/DEV-124: Fix button styling`
+  - `hotfix/DEV-125: Resolve payment issue`
+
+- **Branch Name Validation**: A pre-commit hook checks that branch names follow the format `feature/DEV-<ticketNumber>`, `fix/DEV-<ticketNumber>`, or `hotfix/DEV-<ticketNumber>`. Example:
+
+  - `feature/DEV-123`
+  - `fix/DEV-124`
+  - `hotfix/DEV-125`
+
+If the commit message or branch name does not match the required pattern, the commit will be rejected, ensuring consistency across the project.
 
 ---
 
