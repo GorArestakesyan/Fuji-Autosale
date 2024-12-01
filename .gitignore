@@ -21,3 +21,5 @@ server/logs/
 
 # Ignore environment variables files
 server/.env
+
+database.db
