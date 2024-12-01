@@ -1,13 +1,13 @@
-import {ActivityIndicator} from '@components/ActivityIndicator';
-import {useProductsQuery} from '@hooks/products';
-import {Box} from '@styles/theme';
+import { ActivityIndicator } from '@components/ActivityIndicator';
+import { useProductsQuery } from '@hooks/products';
+import { Box } from '@styles/theme';
 import React from 'react';
-import {FlatList} from 'react-native';
-import {ProductCard} from './ProductCard/ProductCard';
-import {styles} from './Products.useStyles';
+import { FlatList } from 'react-native';
+import { ProductCard } from './ProductCard/ProductCard';
+import { styles } from './Products.useStyles';
 
 export const Products = () => {
-  const {data, isLoading} = useProductsQuery();
+  const { data, isLoading } = useProductsQuery();
 
   if (isLoading) {
     return (
@@ -25,7 +25,7 @@ export const Products = () => {
       data={data}
       keyExtractor={item => String(item.id)}
       showsVerticalScrollIndicator={false}
-      renderItem={({item: product}) => (
+      renderItem={({ item: product }) => (
         <ProductCard key={product.id} product={product} />
       )}
     />

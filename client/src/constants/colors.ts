@@ -1,4 +1,4 @@
-import {TColorPalettes, TSharedColors} from '@types';
+import { TColorPalettes, TSharedColors } from '@types';
 
 const sharedColors: TSharedColors = {
   black: '#000000',
@@ -49,4 +49,4 @@ const Colors: TColorPalettes = {
   },
 };
 
-export {Colors};
+export { Colors };

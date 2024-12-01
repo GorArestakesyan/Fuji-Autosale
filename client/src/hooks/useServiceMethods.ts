@@ -1,4 +1,4 @@
-import {ApiService} from '@implementations/services';
+import { ApiService } from '@implementations/services';
 
 export const useServiceMethods = (serviceName: keyof ApiService) => {
   const services = new ApiService();

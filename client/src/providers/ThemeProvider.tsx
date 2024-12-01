@@ -1,15 +1,15 @@
-import {Colors} from '@constants/colors';
-import {useAsyncStorage} from '@hooks/useAsyncStorage';
-import {useDeviceTheme} from '@hooks/useDeviceTheme';
-import {ThemeProvider as RestyleProvider} from '@shopify/restyle';
-import {theme as restyleTheme} from '@styles/theme';
-import {TChild, TColorPalettes} from '@types';
+import { Colors } from '@constants/colors';
+import { useAsyncStorage } from '@hooks/useAsyncStorage';
+import { useDeviceTheme } from '@hooks/useDeviceTheme';
+import { ThemeProvider as RestyleProvider } from '@shopify/restyle';
+import { theme as restyleTheme } from '@styles/theme';
+import { TChild, TColorPalettes } from '@types';
 import React from 'react';
-import {ThemeContext} from '../context/index';
+import { ThemeContext } from '../context/index';
 
-const ThemeProvider = ({children}: TChild) => {
+const ThemeProvider = ({ children }: TChild) => {
   const deviceTheme = useDeviceTheme();
-  const {setValue, storedValue} = useAsyncStorage('theme', '');
+  const { setValue, storedValue } = useAsyncStorage('theme', '');
 
   const currentTheme = storedValue || deviceTheme;
 
@@ -39,4 +39,4 @@ const ThemeProvider = ({children}: TChild) => {
   );
 };
 
-export {ThemeProvider};
+export { ThemeProvider };

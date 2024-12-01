@@ -1,17 +1,17 @@
 import BackIcon from '@assets/icons/svg/arrowLeft.svg';
-import {useTheme} from '@hooks/useTheme';
-import {useNavigation} from '@react-navigation/native';
-import {Box} from '@styles/theme';
+import { useTheme } from '@hooks/useTheme';
+import { useNavigation } from '@react-navigation/native';
+import { Box } from '@styles/theme';
 import React from 'react';
-import {TouchableOpacity, ViewStyle} from 'react-native';
+import { TouchableOpacity, ViewStyle } from 'react-native';
 
 interface IHeader {
   style?: ViewStyle;
 }
 
-const Header = ({style}: IHeader) => {
-  const {goBack} = useNavigation();
-  const {colors} = useTheme();
+const Header = ({ style }: IHeader) => {
+  const { goBack } = useNavigation();
+  const { colors } = useTheme();
   return (
     <Box style={style} backgroundColor={'primary'}>
       <TouchableOpacity onPress={goBack}>
@@ -27,4 +27,4 @@ const Header = ({style}: IHeader) => {
   );
 };
 
-export {Header};
+export { Header };

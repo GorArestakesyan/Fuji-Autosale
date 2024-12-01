@@ -10,6 +10,7 @@
     "start": "react-native start",
     "test": "jest",
     "prepare": "husky",
+    "prettier": "npx prettier . --write",
     "pod": "cd ios && pod install && cd ..",
     "apk": "cd android && ./gradle clean && ./gradle assembleRelease",
     "aab": "cd android && ./gradle clean && ./gradle bundleRelease",

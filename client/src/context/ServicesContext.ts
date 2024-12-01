@@ -1,5 +1,5 @@
-import {ServicesContainer} from '@implementations/servicesContainer';
-import {createContext, useContext} from 'react';
+import { ServicesContainer } from '@implementations/servicesContainer';
+import { createContext, useContext } from 'react';
 
 export const ServicesContext = createContext<ServicesContainer | null>(null);
 export const ServicesProvider = ServicesContext.Provider;

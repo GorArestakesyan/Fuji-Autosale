@@ -1,6 +1,6 @@
-import {Colors} from '@constants/colors';
-import {TScreenOptions} from '@types';
-import {Easing} from 'react-native';
+import { Colors } from '@constants/colors';
+import { TScreenOptions } from '@types';
+import { Easing } from 'react-native';
 
 const SCREEN_OPTIONS: TScreenOptions = {
   headerShown: false,
@@ -34,4 +34,4 @@ const SCREEN_OPTIONS: TScreenOptions = {
   },
 };
 
-export {SCREEN_OPTIONS};
+export { SCREEN_OPTIONS };

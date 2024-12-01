@@ -1,6 +1,6 @@
-import {BASE_URL} from '@env';
-import {TProduct} from '@types';
-import {AxiosService} from './AxiosService';
+import { BASE_URL } from '@env';
+import { TProduct } from '@types';
+import { AxiosService } from './AxiosService';
 
 type TResponse = {
   products: TProduct[];

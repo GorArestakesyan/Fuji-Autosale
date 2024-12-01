@@ -1,13 +1,13 @@
-import {Box, Text} from '@styles/theme';
-import {TProduct} from '@types';
+import { Box, Text } from '@styles/theme';
+import { TProduct } from '@types';
 import React from 'react';
-import {Review} from '../components/Review';
+import { Review } from '../components/Review';
 
 interface IReviews {
   reviews: TProduct['reviews'];
 }
 
-const Reviews = ({reviews}: IReviews) => {
+const Reviews = ({ reviews }: IReviews) => {
   return (
     <Box
       backgroundColor={'shadow'}
@@ -24,4 +24,4 @@ const Reviews = ({reviews}: IReviews) => {
   );
 };
 
-export {Reviews};
+export { Reviews };

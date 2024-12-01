@@ -1,13 +1,13 @@
 import useRoutes from '@hooks/useRoutes';
-import {useTheme} from '@hooks/useTheme';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {SCREEN_OPTIONS} from '@utils/screenOptions';
-import React, {FunctionComponent} from 'react';
+import { useTheme } from '@hooks/useTheme';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SCREEN_OPTIONS } from '@utils/screenOptions';
+import React, { FunctionComponent } from 'react';
 const Tab = createBottomTabNavigator();
 
 export const TabNavigator = () => {
-  const {colors} = useTheme();
-  const {bottomRoutes} = useRoutes();
+  const { colors } = useTheme();
+  const { bottomRoutes } = useRoutes();
   const headerStyles = {
     tabBarActiveTintColor: colors.link,
     headerStyle: {
@@ -29,8 +29,8 @@ export const TabNavigator = () => {
   };
 
   return (
-    <Tab.Navigator screenOptions={{...SCREEN_OPTIONS, ...headerStyles}}>
-      {bottomRoutes.map(({screen, logo, label, name}, index) => (
+    <Tab.Navigator screenOptions={{ ...SCREEN_OPTIONS, ...headerStyles }}>
+      {bottomRoutes.map(({ screen, logo, label, name }, index) => (
         <Tab.Screen
           key={`bottom_tab_item_${index}`}
           options={{
@@ -39,10 +39,10 @@ export const TabNavigator = () => {
               fontSize: 11,
               marginTop: 5,
             },
-            tabBarIcon: ({focused}) => logo(focused),
+            tabBarIcon: ({ focused }) => logo(focused),
           }}
           name={name}
-          listeners={({navigation}) => ({
+          listeners={({ navigation }) => ({
             tabPress: e => {
               if (name === 'MoreScreen') {
                 e.preventDefault();

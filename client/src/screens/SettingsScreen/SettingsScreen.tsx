@@ -1,14 +1,14 @@
-import {Header} from '@components/Header';
+import { Header } from '@components/Header';
 import ThemeSwitch from '@components/ThemeSwitcher';
-import {useDeviceTheme} from '@hooks/useDeviceTheme';
-import {useTheme} from '@hooks/useTheme';
-import {Box, Text} from '@styles/theme';
+import { useDeviceTheme } from '@hooks/useDeviceTheme';
+import { useTheme } from '@hooks/useTheme';
+import { Box, Text } from '@styles/theme';
 import React from 'react';
-import {useSharedValue} from 'react-native-reanimated';
-import {styles} from './SettingsScreen.useStyles';
+import { useSharedValue } from 'react-native-reanimated';
+import { styles } from './SettingsScreen.useStyles';
 
 const SettingsScreen = () => {
-  const {toggleTheme, theme} = useTheme();
+  const { toggleTheme, theme } = useTheme();
   const deviceTheme = useDeviceTheme();
   const currentTheme = !theme ? deviceTheme : theme;
   const isOn = useSharedValue(currentTheme === 'dark' ? 1 : 0);

@@ -1,7 +1,7 @@
-import theme, {colors} from '@styles/theme';
-import {Dimensions, StyleSheet} from 'react-native';
+import theme, { colors } from '@styles/theme';
+import { Dimensions, StyleSheet } from 'react-native';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   productImage: {
@@ -27,5 +27,5 @@ export const styles = StyleSheet.create({
     height: width / 1.5,
     width: width,
   },
-  scrollWrapper: {backgroundColor: colors.primary},
+  scrollWrapper: { backgroundColor: colors.primary },
 });

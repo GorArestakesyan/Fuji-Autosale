@@ -1,1 +1,1 @@
-export {DrawerScreen} from './DrawerScreen';
+export { DrawerScreen } from './DrawerScreen';

@@ -1,6 +1,6 @@
 // services/AxiosService.ts
-import {BASE_URL} from '@env';
-import axios, {AxiosInstance} from 'axios';
+import { BASE_URL } from '@env';
+import axios, { AxiosInstance } from 'axios';
 
 export class AxiosService {
   private axiosInstance: AxiosInstance;

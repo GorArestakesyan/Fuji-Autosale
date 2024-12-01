@@ -1,17 +1,17 @@
-import {STACK_ROUTES} from '@constants/routes';
+import { STACK_ROUTES } from '@constants/routes';
 import {
   BottomTabNavigationEventMap,
   BottomTabNavigationOptions,
 } from '@react-navigation/bottom-tabs';
-import {DrawerNavigationOptions} from '@react-navigation/drawer/lib/typescript/src/types';
+import { DrawerNavigationOptions } from '@react-navigation/drawer/lib/typescript/src/types';
 import {
   EventListenerCallback,
   EventMapCore,
   ParamListBase,
   TabNavigationState,
 } from '@react-navigation/native';
-import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
-import {ReactNode} from 'react';
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import { ReactNode } from 'react';
 
 type ThemeContextType = {
   colors: TColors /** Define the type of colors here */;
@@ -133,7 +133,7 @@ type TRootStackParamList = {
   HomeScreen: undefined;
   MainScreen: undefined;
   SettingsScreen: undefined;
-  ProductDetails: {product: TProduct};
+  ProductDetails: { product: TProduct };
 };
 
 export type {

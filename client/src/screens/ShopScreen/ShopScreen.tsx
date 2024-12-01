@@ -1,5 +1,5 @@
-import {Box} from '@styles/theme';
-import {Products} from '@ui-modules/products';
+import { Box } from '@styles/theme';
+import { Products } from '@ui-modules/products';
 import React from 'react';
 
 const ShopScreen = () => {

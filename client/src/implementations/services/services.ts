@@ -1,4 +1,4 @@
-import {ProductService} from './ProductService';
+import { ProductService } from './ProductService';
 
 export const services = {
   products: ProductService,

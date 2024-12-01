@@ -1,5 +1,5 @@
-import {Colors} from '@constants/colors';
-import {isIOS} from '@hooks/isIOS';
+import { Colors } from '@constants/colors';
+import { isIOS } from '@hooks/isIOS';
 import {
   VariantProps,
   createBox,
@@ -56,7 +56,7 @@ export const theme = createTheme({
     xl: 150,
   },
   textVariants: {
-    defaults: {fontFamily: fontFamilies.COMFORTAA.regular},
+    defaults: { fontFamily: fontFamilies.COMFORTAA.regular },
     regular: {
       fontFamily: fontFamilies.COMFORTAA.regular,
     },
@@ -341,11 +341,11 @@ export const Text = createText<TTheme>();
 export const CustomBox = createRestyleComponent<
   VariantProps<TTheme, 'boxVariants'> & React.ComponentProps<typeof Box>,
   TTheme
->([createVariant({themeKey: 'boxVariants'})], Box);
+>([createVariant({ themeKey: 'boxVariants' })], Box);
 
 export const ButtonContainer = createRestyleComponent<
   VariantProps<TTheme, 'boxVariants'> & React.ComponentProps<typeof Box>,
   TTheme
->([createVariant({themeKey: 'boxVariants'})], Box);
+>([createVariant({ themeKey: 'boxVariants' })], Box);
 
 export default theme;
