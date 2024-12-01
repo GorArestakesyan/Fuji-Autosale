@@ -174,7 +174,7 @@ Link to the related task ticket (e.g., [Task Link](https://your-task-link.com)).
 
 - [ ] Bug fix
 - [ ] Feature enhancement
-- [ [ ] New feature
+- [ ] New feature
 - [ ] Refactoring
 - [ ] Documentation update
 - [ ] Other (Please describe):
