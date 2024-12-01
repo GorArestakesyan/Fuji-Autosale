@@ -1,0 +1,17 @@
+# Node.js (for server-side)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+
+# Environment files
+.env
+
+# Server build directory (if applicable)
+server/build/
+
+# Database files
+*.db
