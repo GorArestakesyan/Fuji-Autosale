@@ -1,1 +1,0 @@
-export {useProductsQuery} from './useProductsQuery';
