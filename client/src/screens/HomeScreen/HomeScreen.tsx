@@ -1,5 +1,6 @@
 import RightArrow from '@assets/icons/svg/arrowCircleRight.svg';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import ManageProducts from '@screens/Admin/ManageProducts';
 import {Box, colors, Text} from '@styles/theme';
 import {TRootStackParamList} from '@types';
 import {TopSales} from '@ui-modules/top-sales';
@@ -34,6 +35,7 @@ export const HomeScreen = ({navigation}: Props) => {
         </Pressable>
       </Box>
       <TopSales />
+      <ManageProducts />
     </Box>
   );
 };
