@@ -1,7 +1,7 @@
 import Bottle from 'bottlejs';
-import {ApiService} from './services/ApiService';
-import {AxiosService} from './services/AxiosService';
-import {ProductService} from './services/ProductService';
+import { ApiService } from './services/ApiService';
+import { AxiosService } from './services/AxiosService';
+import { ProductService } from './services/ProductService';
 
 // Describe all DI-container services here.
 const services = {

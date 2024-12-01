@@ -1,8 +1,8 @@
 import MoonIcon from '@assets/icons/svg/moon.svg';
 import SunIcon from '@assets/icons/svg/sun.svg';
-import {useTheme} from '@hooks/useTheme';
-import React, {useEffect, useRef} from 'react';
-import {Pressable, ViewStyle} from 'react-native';
+import { useTheme } from '@hooks/useTheme';
+import React, { useEffect, useRef } from 'react';
+import { Pressable, ViewStyle } from 'react-native';
 import Animated, {
   interpolate,
   interpolateColor,
@@ -11,10 +11,10 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import {styles} from './ThemeSwitcher.useStyles';
+import { styles } from './ThemeSwitcher.useStyles';
 
 interface ThemeSwitchProps {
-  value: {value: number};
+  value: { value: number };
   onPress: () => void;
   onFinish?: () => void;
   style?: ViewStyle;
@@ -28,9 +28,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
   onFinish,
   duration = 400,
 }) => {
-  const {colors} = useTheme();
+  const { colors } = useTheme();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const trackColors = {on: colors.white, off: colors.black};
+  const trackColors = { on: colors.white, off: colors.black };
   const height = useSharedValue(0);
   const width = useSharedValue(0);
   const derivedValue = useDerivedValue(() => {
@@ -47,8 +47,8 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
       [0, 1],
       [trackColors.off, trackColors.on],
     );
-    const colorValue = withTiming(color, {duration: duration / 1.5});
-    const borderValue = withTiming(borderColor, {duration});
+    const colorValue = withTiming(color, { duration: duration / 1.5 });
+    const borderValue = withTiming(borderColor, { duration });
 
     return {
       backgroundColor: colorValue,
@@ -63,10 +63,10 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
       [0, 1],
       [0, width.value - height.value],
     );
-    const translateValue = withTiming(moveValue, {duration});
+    const translateValue = withTiming(moveValue, { duration });
 
     return {
-      transform: [{translateX: translateValue}],
+      transform: [{ translateX: translateValue }],
       borderRadius: height.value / 2,
     };
   });

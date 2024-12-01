@@ -1,12 +1,12 @@
-import {Box, Text} from '@styles/theme';
-import {TReview} from '@types';
+import { Box, Text } from '@styles/theme';
+import { TReview } from '@types';
 import React from 'react';
 
 interface IReview {
   review: TReview;
 }
 
-const Review = ({review}: IReview) => {
+const Review = ({ review }: IReview) => {
   const reviewDate = new Date(review.date).toLocaleDateString();
   return (
     <Box flexDirection={'column'} marginVertical={'s'}>
@@ -25,4 +25,4 @@ const Review = ({review}: IReview) => {
   );
 };
 
-export {Review};
+export { Review };

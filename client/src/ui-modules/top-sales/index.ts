@@ -1,1 +1,1 @@
-export {TopSales} from './TopSales';
+export { TopSales } from './TopSales';

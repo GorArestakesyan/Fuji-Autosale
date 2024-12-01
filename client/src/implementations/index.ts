@@ -1,2 +1,2 @@
 export * from './services/index';
-export {ServicesContainer} from './ServicesContainer';
+export { ServicesContainer } from './ServicesContainer';

@@ -1,7 +1,7 @@
 import LottieView from 'lottie-react-native';
-import React, {useContext, useMemo} from 'react';
-import {ThemeContext} from '../../context';
-import {styles} from './ActivityIndicator.useStyles';
+import React, { useContext, useMemo } from 'react';
+import { ThemeContext } from '../../context';
+import { styles } from './ActivityIndicator.useStyles';
 interface IActivityIndicator {
   isLoading?: boolean;
   size?: number;
@@ -11,7 +11,7 @@ const ActivityIndicator = ({
   isLoading = true,
   size = 60,
 }: IActivityIndicator) => {
-  const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const activePath = useMemo(
     () =>
       theme === 'dark'
@@ -23,7 +23,7 @@ const ActivityIndicator = ({
     isLoading && (
       <LottieView
         source={activePath}
-        style={[styles.loader, {height: size, width: size}]}
+        style={[styles.loader, { height: size, width: size }]}
         autoPlay
         loop
       />
@@ -31,4 +31,4 @@ const ActivityIndicator = ({
   );
 };
 
-export {ActivityIndicator};
+export { ActivityIndicator };

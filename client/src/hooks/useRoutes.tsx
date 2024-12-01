@@ -1,6 +1,6 @@
-import {HomeLogo, MoreLogo, ShopLogo} from '@assets/icons/components';
-import {DrawerScreen} from '@screens/DrawerScreen';
-import {HomeScreen} from '@screens/HomeScreen';
+import { HomeLogo, MoreLogo, ShopLogo } from '@assets/icons/components';
+import { DrawerScreen } from '@screens/DrawerScreen';
+import { HomeScreen } from '@screens/HomeScreen';
 import ShopScreen from '@screens/ShopScreen/ShopScreen';
 import React from 'react';
 
@@ -25,7 +25,7 @@ const useRoutes = () => {
       screen: DrawerScreen,
     },
   ];
-  return {bottomRoutes};
+  return { bottomRoutes };
 };
 
 export default useRoutes;

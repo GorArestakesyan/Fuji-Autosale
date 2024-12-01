@@ -1,7 +1,7 @@
 // hooks/useProductsQuery.ts
-import {useQuery} from '@tanstack/react-query';
-import {TProducts} from '@types';
-import {ServicesContainer} from '../../implementations/servicesContainer';
+import { useQuery } from '@tanstack/react-query';
+import { TProducts } from '@types';
+import { ServicesContainer } from '../../implementations/servicesContainer';
 
 const useProductsQuery = () => {
   const productService = new ServicesContainer();
@@ -13,4 +13,4 @@ const useProductsQuery = () => {
   });
 };
 
-export {useProductsQuery};
+export { useProductsQuery };

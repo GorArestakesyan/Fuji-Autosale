@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, {useState} from 'react';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import React, { useState } from 'react';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 const CreateProductForm: React.FC = () => {
   const [name, setName] = useState<string>('');
@@ -11,9 +11,9 @@ const CreateProductForm: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async () => {
-    console.log('Submitting product:', {name, description, price, createdBy});
+    console.log('Submitting product:', { name, description, price, createdBy });
 
-    const product = {name, description, price: parseFloat(price), createdBy};
+    const product = { name, description, price: parseFloat(price), createdBy };
 
     try {
       const response = await axios.post(

@@ -4,6 +4,7 @@
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
+    "prettier": "npx prettier . --write",
     "dev": "nodemon --exec ts-node src/server.ts"
   },
   "dependencies": {

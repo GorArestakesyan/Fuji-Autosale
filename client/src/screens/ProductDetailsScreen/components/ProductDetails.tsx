@@ -1,18 +1,18 @@
 import Button from '@components/Button';
-import {Divider} from '@components/Divider';
-import {Box, Text} from '@styles/theme';
-import {TProduct} from '@types';
-import {Reviews} from '@ui-modules/products/Reviews/Reviews';
-import React, {useState} from 'react';
-import {FlatList, Modal, Pressable} from 'react-native';
+import { Divider } from '@components/Divider';
+import { Box, Text } from '@styles/theme';
+import { TProduct } from '@types';
+import { Reviews } from '@ui-modules/products/Reviews/Reviews';
+import React, { useState } from 'react';
+import { FlatList, Modal, Pressable } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {styles} from '../productDetailsScreen.useStyles';
+import { styles } from '../productDetailsScreen.useStyles';
 
 interface IProductDetails {
   product: TProduct;
 }
 
-export function ProductDetails({product}: IProductDetails) {
+export function ProductDetails({ product }: IProductDetails) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <Box flex={1} paddingHorizontal={'s'} backgroundColor={'primary'}>
@@ -25,7 +25,7 @@ export function ProductDetails({product}: IProductDetails) {
           contentContainerStyle={styles.sliderWrapper}
           style={styles.slider}
           data={product?.images}
-          renderItem={({item}) => {
+          renderItem={({ item }) => {
             return (
               <FastImage
                 source={{

@@ -1,7 +1,7 @@
-import {BoxProps, VariantProps} from '@shopify/restyle';
-import {ButtonContainer, Text, TTheme} from '@styles/theme';
+import { BoxProps, VariantProps } from '@shopify/restyle';
+import { ButtonContainer, Text, TTheme } from '@styles/theme';
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 type Props = BoxProps<TTheme> &
   VariantProps<TTheme, 'boxVariants'> &

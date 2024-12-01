@@ -1,11 +1,11 @@
-import {Box} from '@styles/theme';
+import { Box } from '@styles/theme';
 import React from 'react';
-import {ViewStyle} from 'react-native';
+import { ViewStyle } from 'react-native';
 
 interface IDivider {
   style: ViewStyle;
 }
-const Divider = ({style}: IDivider) => {
+const Divider = ({ style }: IDivider) => {
   return (
     <Box
       style={style}
@@ -17,4 +17,4 @@ const Divider = ({style}: IDivider) => {
   );
 };
 
-export {Divider};
+export { Divider };

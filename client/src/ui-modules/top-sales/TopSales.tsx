@@ -1,6 +1,6 @@
-import {Box, Text} from '@styles/theme';
-import {TOP_SALES} from '@utils/mocks/homeSliderImages';
-import React, {useRef, useState} from 'react';
+import { Box, Text } from '@styles/theme';
+import { TOP_SALES } from '@utils/mocks/homeSliderImages';
+import React, { useRef, useState } from 'react';
 import {
   Dimensions,
   NativeScrollEvent,
@@ -8,15 +8,15 @@ import {
   ScrollView,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {styles} from './TopSales.useStyles';
+import { styles } from './TopSales.useStyles';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 interface ITopSales {
   label?: string;
 }
 
-export const TopSales = ({label = 'TOP SALES'}: ITopSales) => {
+export const TopSales = ({ label = 'TOP SALES' }: ITopSales) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollViewRef = useRef(null);
 
@@ -47,7 +47,7 @@ export const TopSales = ({label = 'TOP SALES'}: ITopSales) => {
           {TOP_SALES.map((image, index) => (
             <FastImage
               key={index}
-              source={{uri: image, cache: 'immutable', priority: 'high'}}
+              source={{ uri: image, cache: 'immutable', priority: 'high' }}
               resizeMode={FastImage.resizeMode.cover}
               style={styles.image}
             />
@@ -69,7 +69,7 @@ export const TopSales = ({label = 'TOP SALES'}: ITopSales) => {
               backgroundColor={'primary'}
               marginHorizontal={'xs'}
               key={index}
-              style={{opacity: index === activeIndex ? 1 : 0.3}}
+              style={{ opacity: index === activeIndex ? 1 : 0.3 }}
             />
           ))}
         </Box>
