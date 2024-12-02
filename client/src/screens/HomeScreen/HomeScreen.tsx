@@ -8,7 +8,7 @@ import { Dimensions, Pressable } from 'react-native';
 
 type Props = NativeStackScreenProps<TRootStackParamList, 'HomeScreen'>;
 
-const width = Dimensions.get('window').width;
+const { width } = Dimensions.get('window');
 
 export const HomeScreen = ({ navigation }: Props) => {
   const goToShop = () => navigation.navigate('ShopScreen');
