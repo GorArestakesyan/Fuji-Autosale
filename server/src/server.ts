@@ -1,6 +1,6 @@
 import express from 'express';
-import productModel from './models/productModel';
-import productRoutes from './routes/productRoutes';
+import vehicleModel from "./models/vehicleModel";
+import vehicleRoutes from "./routes/vehicleRoutes";
 
 const app = express();
 app.use(express.json());
@@ -8,14 +8,14 @@ app.use(express.json());
 const initializeApp = async () => {
   try {
     // Ensure the database is initialized
-    await productModel.initialize();
+    await vehicleModel.initialize();
   } catch (error) {
     console.error('Error initializing application:', error);
     process.exit(1); // Exit if initialization fails
   }
 };
 
-app.use('/products', productRoutes);
+app.use('/vehicles', vehicleRoutes);
 
 const PORT = 3010;
 app.listen(PORT, async () => {

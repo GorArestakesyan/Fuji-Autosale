@@ -1,7 +1,7 @@
 import { Database } from 'better-sqlite3';
 import { connectDatabase } from '../db/database'; // Import the new connection function
 
-class ProductModel {
+class VehicleModel {
   private db: Database | null = null;
 
   public async connect() {
@@ -21,11 +21,11 @@ class ProductModel {
     }
 
     try {
-      // Initialize the products table if not already present
+      // Initialize the vehicles table if not already present
       await this.db
         ?.prepare(
           `
-                CREATE TABLE IF NOT EXISTS products (
+                CREATE TABLE IF NOT EXISTS vehicles (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT NOT NULL,
                     description TEXT,
@@ -35,24 +35,24 @@ class ProductModel {
             `,
         )
         .run();
-      console.log('Products table initialized successfully.');
+      console.log('Vehicles table initialized successfully.');
     } catch (error) {
-      console.error('Error initializing products table:', error);
-      throw new Error('Failed to initialize products table');
+      console.error('Error initializing vehicles table:', error);
+      throw new Error('Failed to initialize vehicles table');
     }
   }
 
-  public async getAllProducts() {
+  public async getAllVehicles() {
     try {
-      const products = this.db?.prepare('SELECT * FROM products').all();
-      return products || []; // Return an empty array if no products are found
+      const vehicles = this.db?.prepare('SELECT * FROM vehicles').all();
+      return vehicles || []; // Return an empty array if no vehicles are found
     } catch (error) {
-      console.error('Error fetching products:', error);
-      throw new Error('Failed to fetch products');
+      console.error('Error fetching vehicles:', error);
+      throw new Error('Failed to fetch vehicles');
     }
   }
 
-  public async createProduct(
+  public async createVehicle(
     name: string,
     description: string,
     price: number,
@@ -62,19 +62,19 @@ class ProductModel {
       const result = this.db
         ?.prepare(
           `
-                INSERT INTO products (name, description, price, createdBy)
+                INSERT INTO vehicles (name, description, price, createdBy)
                 VALUES (?, ?, ?, ?)
             `,
         )
         .run(name, description, price, createdBy);
       console.log('Product added successfully:', result);
     } catch (error) {
-      console.error('Error adding product:', error);
-      throw new Error('Failed to add product');
+      console.error('Error adding vehicle:', error);
+      throw new Error('Failed to add vehicle');
     }
   }
 
-  public async updateProduct(
+  public async updateVehicle(
     id: string,
     name: string,
     description: string,
@@ -84,7 +84,7 @@ class ProductModel {
       const result = this.db
         ?.prepare(
           `
-                UPDATE products
+                UPDATE vehicles
                 SET name = ?, description = ?, price = ?
                 WHERE id = ?
             `,
@@ -94,10 +94,10 @@ class ProductModel {
         return result?.changes > 0;
       }
     } catch (error) {
-      console.error('Error updating product:', error);
-      throw new Error('Failed to update product');
+      console.error('Error updating vehicle:', error);
+      throw new Error('Failed to update vehicle');
     }
   }
 }
 
-export default new ProductModel();
+export default new VehicleModel();

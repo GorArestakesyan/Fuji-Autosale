@@ -16,7 +16,7 @@ export const TabNavigator = () => {
     headerTintColor: colors.textPrimary,
     tabBarStyle: {
       height: 50,
-      alignSelft: 'center',
+      alignSelf: 'center',
       paddingTop: 10,
       position: 'absolute',
       backgroundColor: colors.primary,

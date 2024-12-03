@@ -11,14 +11,14 @@ const CreateProductForm: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async () => {
-    console.log('Submitting product:', { name, description, price, createdBy });
+    console.log('Submitting vehicles:', { name, description, price, createdBy });
 
-    const product = { name, description, price: parseFloat(price), createdBy };
+    const vehicles = { name, description, price: parseFloat(price), createdBy };
 
     try {
       const response = await axios.post(
-        'http://localhost:3010/products',
-        product,
+        'http://localhost:3010/vehicles',
+          vehicles,
       );
 
       console.log('Response from backend:', response.data);
@@ -30,8 +30,8 @@ const CreateProductForm: React.FC = () => {
         setCreatedBy('');
       }
     } catch (err) {
-      console.error('Error adding product:', err);
-      setError('Failed to add product');
+      console.error('Error adding vehicles:', err);
+      setError('Failed to add vehicles');
     } finally {
       setLoading(false);
     }
@@ -68,7 +68,7 @@ const CreateProductForm: React.FC = () => {
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
       <Button
-        title={loading ? 'Adding Product...' : 'Add Product'}
+        title={loading ? 'Adding vehicles...' : 'Add vehicles'}
         onPress={handleSubmit}
         disabled={loading}
       />

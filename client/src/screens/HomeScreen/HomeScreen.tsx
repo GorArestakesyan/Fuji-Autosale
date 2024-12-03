@@ -1,10 +1,11 @@
-import RightArrow from '@assets/icons/svg/arrowCircleRight.svg';
+import Car from '@assets/icons/svg/car.svg';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Box, colors, Text } from '@styles/theme';
 import { TRootStackParamList } from '@types';
 import { TopSales } from '@ui-modules/top-sales';
 import React from 'react';
-import { Dimensions, Pressable } from 'react-native';
+import { Dimensions, Pressable, View } from 'react-native';
+import { styles } from '@components/Header/Header.useStyles.ts';
 
 type Props = NativeStackScreenProps<TRootStackParamList, 'HomeScreen'>;
 
@@ -18,19 +19,23 @@ export const HomeScreen = ({ navigation }: Props) => {
       <Box
         py={'m'}
         px={'m'}
+        mt={'xs'}
         width={width}
+        height={100}
         alignSelf={'center'}
         flexDirection={'row'}
         alignItems={'center'}
         justifyContent={'space-between'}>
         <Text variant={'text24Bold'} color={'textPrimary'}>
-          G-SHOP
+          FUJI Autosale
         </Text>
-        <Pressable onPress={goToShop}>
-          <RightArrow fill={colors.primary} />
-          <Text variant={'text11'} color={'textPrimary'}>
-            Shop now
-          </Text>
+        <Pressable style={styles.iconButton} onPress={goToShop}>
+          <Car
+            color={colors.primary}
+            height={60}
+            width={60}
+            style={styles.carIcon}
+          />
         </Pressable>
       </Box>
       <TopSales />
