@@ -1,5 +1,5 @@
 
-# GShop
+# Fuji Autosale
 
 ## Table of Contents
 
@@ -25,7 +25,7 @@
 
 ## Project Overview
 
-**GShop** is a full-stack e-commerce application consisting of a **React Native** mobile app and a **Node.js** backend. This project is designed to ensure scalability, maintainability, and ease of use with technologies like TypeScript, React Navigation, Express.js, and MongoDB. The client side (React Native app) communicates with the backend to fetch and manage data.
+**Fuji Autosale** is a full-stack e-commerce application consisting of a **React Native** mobile app and a **Node.js** backend. This project is designed to ensure scalability, maintainability, and ease of use with technologies like TypeScript, React Navigation, Express.js, and MongoDB. The client side (React Native app) communicates with the backend to fetch and manage data.
 
 ## Client-side (React Native App)
 
@@ -54,7 +54,7 @@ The React Native app follows a modular folder structure:
 
 	 ```bash
 	 git clone <repository-url>
-	 cd GShop
+	 cd FujiAutosale
 	 ```
 
 2. Install dependencies:
@@ -120,7 +120,7 @@ The backend server follows this folder structure:
 
 	 ```bash
 	 git clone <repository-url>
-	 cd GShop
+	 cd FujiAutosale
 	 ```
 
 2. Install dependencies:
