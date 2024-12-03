@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "GShop.app"
-               BlueprintName = "GShop"
-               ReferencedContainer = "container:GShop.xcodeproj">
+               BuildableName = "FujiAutosale.app"
+               BlueprintName = "FujiAutosale"
+               ReferencedContainer = "container:FujiAutosale.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "GShopTests.xctest"
-               BlueprintName = "GShopTests"
-               ReferencedContainer = "container:GShop.xcodeproj">
+               BuildableName = "FujiAutosaleTests.xctest"
+               BlueprintName = "FujiAutosaleTests"
+               ReferencedContainer = "container:FujiAutosale.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GShop.app"
-            BlueprintName = "GShop"
-            ReferencedContainer = "container:GShop.xcodeproj">
+            BuildableName = "FujiAutosale.app"
+            BlueprintName = "FujiAutosale"
+            ReferencedContainer = "container:FujiAutosale.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GShop.app"
-            BlueprintName = "GShop"
-            ReferencedContainer = "container:GShop.xcodeproj">
+            BuildableName = "FujiAutosale.app"
+            BlueprintName = "FujiAutosale"
+            ReferencedContainer = "container:FujiAutosale.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

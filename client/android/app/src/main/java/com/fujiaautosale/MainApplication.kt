@@ -1,4 +1,4 @@
-package com.GShop
+package com.fujiautosale
 
 import android.app.Application
 import com.facebook.react.PackageList
