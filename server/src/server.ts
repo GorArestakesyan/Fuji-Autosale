@@ -1,21 +1,19 @@
 import express from 'express';
-import vehicleModel from "./models/vehicleModel";
-import vehicleRoutes from "./routes/vehicleRoutes";
+import vehicleModel from './models/vehicleModel';
+import vehicleRoutes from './routes/vehicleRoutes';
+import path from 'path';
 
 const app = express();
 app.use(express.json());
 
-const initializeApp = async () => {
-  try {
-    // Ensure the database is initialized
-    await vehicleModel.initialize();
-  } catch (error) {
-    console.error('Error initializing application:', error);
-    process.exit(1); // Exit if initialization fails
-  }
-};
+// Serve static files for uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/vehicles', vehicleRoutes);
+
+const initializeApp = async () => {
+  await vehicleModel.initialize();
+};
 
 const PORT = 3010;
 app.listen(PORT, async () => {

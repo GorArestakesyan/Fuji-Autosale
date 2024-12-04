@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import productModel from '../models/vehicleModel';
 
-export const getProducts = async (req: Request, res: Response) => {
+export const getVehicles = async (req: Request, res: Response) => {
   try {
-    const products = await productModel.getAllProducts();
+    const products = await productModel.getAllVehicles();
     res.json(products);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch products' });
@@ -16,7 +16,7 @@ export const addProduct = async (
 ): Promise<void> => {
   try {
     const { name, price, description, createdBy } = req.body;
-    await productModel.createProduct(name, description, price, createdBy);
+    await productModel.createVehicle(name, description, price, createdBy);
     res
       .status(201)
       .json({
@@ -32,7 +32,7 @@ export const editProduct = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { name, description, price } = req.body;
-    const success = await productModel.updateProduct(
+    const success = await productModel.updateVehicle(
       id,
       name,
       description,

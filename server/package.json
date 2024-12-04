@@ -10,12 +10,14 @@
   "dependencies": {
     "better-sqlite3": "^11.6.0",
     "express": "^4.17.1",
+    "multer": "^1.4.5-lts.1",
     "sqlite": "^4.1.1",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.12",
     "@types/express": "^5.0.0",
+    "@types/multer": "^1.4.12",
     "@types/node": "^22.10.1",
     "nodemon": "^2.0.15",
     "ts-node": "^10.4.0",

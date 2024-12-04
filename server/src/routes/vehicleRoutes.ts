@@ -1,8 +1,24 @@
 import express from 'express';
+import multer from 'multer';
+import path from 'path';
 import vehicleModel from '../models/vehicleModel';
 
 const router = express.Router();
 
+// Configure Multer for file uploads
+const upload = multer({
+  dest: path.join(__dirname, '../uploads'), // Directory to save uploaded files
+  limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith('image/')) {
+      cb(null, true); // Accept file
+    } else {
+      cb(null, false); // Reject file
+    }
+  },
+});
+
+// Get all vehicles
 router.get('/', async (req, res) => {
   try {
     const vehicles = await vehicleModel.getAllVehicles();
@@ -13,10 +29,18 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+// Create a new vehicle
+/** @todo fix types */
+router.post('/', upload.single('image'), async (req: any, res: any) => {
   const { name, description, price, createdBy } = req.body;
+  const image = req.file?.filename || ''; // Save uploaded file's name
+
+  if (!name || !price || !createdBy) {
+    return res.status(400).send('Missing required fields: name, price, or createdBy');
+  }
+
   try {
-    await vehicleModel.createVehicle(name, description, price, createdBy);
+    await vehicleModel.createVehicle(name, description, parseFloat(price), createdBy, image);
     res.status(201).send('Vehicle created successfully');
   } catch (error) {
     console.error('Error creating vehicle:', error);
@@ -24,19 +48,23 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+// Update a vehicle
+/** @todo fix types */
+router.put('/:id', async (req: any, res: any) => {
+
   const { id } = req.params;
   const { name, description, price } = req.body;
+
+  if (!name || !price) {
+    return res.status(400).send('Missing required fields: name or price');
+  }
+
   try {
-    const updated = await vehicleModel.updateVehicle(
-      id,
-      name,
-      description,
-      price,
-    );
+    const updated = await vehicleModel.updateVehicle(id, name, description, parseFloat(price));
     if (updated) {
       res.send('Vehicle updated successfully');
     } else {
+
       res.status(404).send('Vehicle not found or no changes made');
     }
   } catch (error) {
