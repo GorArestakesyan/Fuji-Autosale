@@ -92,7 +92,7 @@ type TReview = {
   reviewerName: string;
   reviewerEmail: string;
 };
-type TProduct = {
+type TVehicle = {
   id: number;
   title: string;
   description: string;
@@ -125,7 +125,7 @@ type TProduct = {
   thumbnail: string;
 };
 
-type TProducts = TProduct[];
+type TVehicles = TVehicle[];
 
 type TRootStackParamList = {
   ShopScreen: undefined;
@@ -133,7 +133,7 @@ type TRootStackParamList = {
   HomeScreen: undefined;
   MainScreen: undefined;
   SettingsScreen: undefined;
-  ProductDetails: { product: TProduct };
+  ProductDetails: { product: TVehicle };
 };
 
 export type {
@@ -144,12 +144,12 @@ export type {
   TColorTheme,
   ThemeContextType,
   THomeNavigationRoutes,
-  TProduct,
-  TProducts,
   TReview,
   TRootStackParamList,
   TRoute,
   TScreenOptions,
   TSharedColors,
   TStackNavigationRoutes,
+  TVehicle,
+  TVehicles,
 };

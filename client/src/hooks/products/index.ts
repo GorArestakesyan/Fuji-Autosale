@@ -1,1 +1,1 @@
-export { useProductsQuery } from './useProductsQuery';
+export { useVehiclesQuery } from './useVehiclesQuery.ts';

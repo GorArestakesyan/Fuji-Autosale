@@ -1,12 +1,12 @@
 import Bottle from 'bottlejs';
 import { ApiService } from './services/ApiService';
 import { AxiosService } from './services/AxiosService';
-import { ProductService } from './services/ProductService';
+import { VehiclesService } from './services/VehiclesService';
 
 // Describe all DI-container services here.
 const services = {
   ApiService,
-  ProductService,
+  VehiclesService,
   AxiosService,
 };
 export type TServices = typeof services;

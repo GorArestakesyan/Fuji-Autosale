@@ -1,97 +1,86 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, Image, Platform, TextInput, View } from 'react-native';
+import { launchImageLibrary } from 'react-native-image-picker';
 
-const CreateProductForm: React.FC = () => {
-  const [name, setName] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
-  const [price, setPrice] = useState<string>('');
-  const [createdBy, setCreatedBy] = useState<string>('');
-  const [error, setError] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false);
+const CreateVehicleScreen = () => {
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+  const [image, setImage] = useState<string | null>(null);
+  const [createdBy, setCreatedBy] = useState('');
+
+  const pickImage = async () => {
+    const result = await launchImageLibrary({
+      mediaType: 'photo',
+      quality: 1,
+    });
+
+    if (result?.assets?.[0]?.uri) {
+      setImage(result.assets[0].uri);
+    }
+  };
 
   const handleSubmit = async () => {
-    console.log('Submitting vehicles:', { name, description, price, createdBy });
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('price', price);
+    formData.append('createdBy', createdBy);
 
-    const vehicles = { name, description, price: parseFloat(price), createdBy };
+    if (image) {
+      const filename = image?.split('/').pop()!;
+      const type = `image/${filename.split('.').pop()}`;
+
+      formData.append('image', {
+        uri: Platform.OS === 'ios' ? image?.replace('file://', '') : image,
+        name: filename,
+        type,
+      });
+    }
 
     try {
       const response = await axios.post(
         'http://localhost:3010/vehicles',
-          vehicles,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        },
       );
-
-      console.log('Response from backend:', response.data);
-
-      if (response.status === 201) {
-        setName('');
-        setDescription('');
-        setPrice('');
-        setCreatedBy('');
-      }
-    } catch (err) {
-      console.error('Error adding vehicles:', err);
-      setError('Failed to add vehicles');
-    } finally {
-      setLoading(false);
+      console.log('Vehicle created successfully:', response.data);
+    } catch (error) {
+      console.error('Error creating vehicle:', error);
     }
   };
 
   return (
-    <View style={styles.container}>
+    <View>
+      <TextInput placeholder="Name" value={name} onChangeText={setName} />
       <TextInput
-        style={styles.input}
-        placeholder="Product Name"
-        value={name}
-        onChangeText={setName}
-      />
-      <TextInput
-        style={styles.input}
         placeholder="Description"
         value={description}
         onChangeText={setDescription}
       />
       <TextInput
-        style={styles.input}
         placeholder="Price"
         value={price}
-        keyboardType="numeric"
         onChangeText={setPrice}
+        keyboardType="numeric"
       />
       <TextInput
-        style={styles.input}
         placeholder="Created By"
         value={createdBy}
         onChangeText={setCreatedBy}
       />
-
-      {error ? <Text style={styles.errorText}>{error}</Text> : null}
-
-      <Button
-        title={loading ? 'Adding vehicles...' : 'Add vehicles'}
-        onPress={handleSubmit}
-        disabled={loading}
-      />
+      <Button title="Pick Image" onPress={pickImage} />
+      {image && (
+        <Image source={{ uri: image }} style={{ width: 100, height: 100 }} />
+      )}
+      <Button title="Submit" onPress={handleSubmit} />
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    padding: 16,
-  },
-  input: {
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    marginBottom: 12,
-    paddingHorizontal: 8,
-  },
-  errorText: {
-    color: 'red',
-    marginBottom: 12,
-  },
-});
-
-export default CreateProductForm;
+export default CreateVehicleScreen;

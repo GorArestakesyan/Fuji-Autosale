@@ -1,10 +1,10 @@
 import { Box, Text } from '@styles/theme';
-import { TProduct } from '@types';
+import { TVehicle } from '@types';
 import React from 'react';
 import { Review } from '../components/Review';
 
 interface IReviews {
-  reviews: TProduct['reviews'];
+  reviews: TVehicle['reviews'];
 }
 
 const Reviews = ({ reviews }: IReviews) => {

@@ -1,12 +1,11 @@
-import { BASE_URL } from '@env';
-import { TProduct } from '@types';
+import { TVehicles } from '@types';
 import { AxiosService } from './AxiosService';
 
 type TResponse = {
-  products: TProduct[];
+  vehicles: TVehicles;
 };
 
-export class ProductService {
+export class VehiclesService {
   private axiosService: AxiosService;
 
   static inject = ['AxiosService']; // Specify AxiosService as a dependency
@@ -15,10 +14,11 @@ export class ProductService {
     this.axiosService = axiosService;
   }
 
-  async fetchProducts(): Promise<TProduct[]> {
+  async fetchVehicles(): Promise<TResponse> {
     const response = await this.axiosService.instance.get<TResponse>(
-      `${BASE_URL}/products`,
+      `${process.env.BASE_URL}/vehicles`,
     );
-    return response.data.products;
+    console.log('response.data', response.data);
+    return response.data;
   }
 }

@@ -1,10 +1,18 @@
-import React from 'react';
-import CreateProductForm from './components/CreateProduct';
+import React, {useEffect} from 'react';
+import CreateVehicleScreen from './components/CreateProduct';
+import {VehiclesService} from '../../../implementations/services/index';
+import axios from 'axios';
 
 const ManageProducts = () => {
+    const {fetchVehicles} = new VehiclesService(axios);
+
+    useEffect(() => {
+        fetchVehicles();
+    },[]);
+
   return (
     <>
-      <CreateProductForm />
+      <CreateVehicleScreen />
     </>
   );
 };

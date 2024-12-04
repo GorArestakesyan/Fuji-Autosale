@@ -1,4 +1,3 @@
-// services/AxiosService.ts
 import { BASE_URL } from '@env';
 import axios, { AxiosInstance } from 'axios';
 
