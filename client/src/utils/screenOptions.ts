@@ -23,7 +23,7 @@ const SCREEN_OPTIONS: TScreenOptions = {
       },
     },
   },
-  overlayColor: 'rgba(0, 0, 0, 0.9)',
+  overlayColor: 'rgba(0, 0, 0, 0.3)',
   headerStyle: {
     /** @hint default header background color  */
     backgroundColor: Colors.dark.textPrimary,

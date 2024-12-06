@@ -23,16 +23,16 @@ export const HomeScreen = ({ navigation }: Props) => {
         width={width}
         height={100}
         alignSelf={'center'}
-        flexDirection={'row'}
+        flexDirection={'row-reverse'}
         alignItems={'center'}
         justifyContent={'space-between'}>
         <Text variant={'text24Bold'} color={'textPrimary'}>
           FUJI Autosale
         </Text>
-        <Pressable style={[{shadowColor: colors.textPrimary, backgroundColor: colors.primary},styles.iconButton]}>
+        <Pressable style={styles.iconButton}>
           <Logo
-            height={60}
-            width={60}
+            height={34}
+            width={34}
             style={styles.carIcon}
           />
         </Pressable>
