@@ -1,5 +1,7 @@
 
 # Fuji Autosale
+![Group 2608563-40@2x](https://github.com/user-attachments/assets/c39cae71-0622-4472-ba11-1ab1e322edad)
+
 
 ## Table of Contents
 
