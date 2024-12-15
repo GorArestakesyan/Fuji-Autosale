@@ -2,6 +2,7 @@ import { Header } from '@components/Header';
 import ThemeSwitch from '@components/ThemeSwitcher';
 import { useDeviceTheme } from '@hooks/useDeviceTheme';
 import { useTheme } from '@hooks/useTheme';
+import ManageVehicles from '@screens/Admin/ManageVehicles';
 import { Box, Text } from '@styles/theme';
 import React from 'react';
 import { useSharedValue } from 'react-native-reanimated';
@@ -36,6 +37,7 @@ const SettingsScreen = () => {
           style={styles.switcher}
         />
       </Box>
+      <ManageVehicles />
     </Box>
   );
 };

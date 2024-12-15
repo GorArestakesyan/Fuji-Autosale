@@ -1,102 +1,188 @@
 import { Database } from 'better-sqlite3';
-import { connectDatabase } from '../db/database'; // Import the new connection function
+import { connectDatabase } from '../db/database';
 
 class VehicleModel {
   private db: Database | null = null;
 
-  public async connect() {
-    try {
-      this.db = await connectDatabase(); // Get the encrypted database
-      console.log('Database connected.');
-    } catch (error) {
-      console.error('Error initializing database connection:', error);
-      throw new Error('Failed to connect to the database');
+  private ensureConnection() {
+    if (!this.db) {
+      throw new Error('Database connection not initialized.');
     }
+  }
+
+  public async connect() {
+    this.db = await connectDatabase();
   }
 
   public async initialize() {
-    if (!this.db) {
-      console.log('Database is not connected. Attempting to reconnect...');
-      await this.connect();
-    }
+    if (!this.db) await this.connect();
 
     try {
-      // Initialize the vehicles table if not already present
-      await this.db
+      this.db
         ?.prepare(
           `
-                CREATE TABLE IF NOT EXISTS vehicles (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    name TEXT NOT NULL,
-                    description TEXT,
-                    price REAL NOT NULL,
-                    createdBy TEXT NOT NULL
-                )
+            CREATE TABLE IF NOT EXISTS vehicles (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              name TEXT NOT NULL,
+              description TEXT,
+              price REAL NOT NULL,
+              createdBy TEXT NOT NULL,
+              image TEXT,
+              make TEXT,
+              model TEXT,
+              year INTEGER,
+              mileage REAL,
+              fuelType TEXT,
+              transmission TEXT,
+              engineSize REAL,
+              color TEXT,
+              numberOfSeats INTEGER,
+              numberOfDoors INTEGER,
+              wheelDrive TEXT,
+              city TEXT,
+              zipCode TEXT
+            )
             `,
         )
         .run();
-      console.log('Vehicles table initialized successfully.');
     } catch (error) {
       console.error('Error initializing vehicles table:', error);
-      throw new Error('Failed to initialize vehicles table');
+      throw error;
     }
   }
 
-  public async getAllVehicles() {
-    try {
-      const vehicles = this.db?.prepare('SELECT * FROM vehicles').all();
-      return vehicles || []; // Return an empty array if no vehicles are found
-    } catch (error) {
-      console.error('Error fetching vehicles:', error);
-      throw new Error('Failed to fetch vehicles');
-    }
+  public getAllVehicles() {
+    this.ensureConnection();
+    return this.db?.prepare('SELECT * FROM vehicles').all() || [];
   }
 
-  public async createVehicle(
+  public createVehicle(
     name: string,
     description: string,
     price: number,
     createdBy: string,
+    image: string,
+    make: string,
+    model: string,
+    year: number,
+    mileage: number,
+    fuelType: string,
+    transmission: string,
+    engineSize: number,
+    color: string,
+    numberOfSeats: number,
+    numberOfDoors: number,
+    wheelDrive: string,
+    city: string,
+    zipCode: string,
   ) {
-    try {
-      const result = this.db
-        ?.prepare(
-          `
-                INSERT INTO vehicles (name, description, price, createdBy)
-                VALUES (?, ?, ?, ?)
-            `,
-        )
-        .run(name, description, price, createdBy);
-      console.log('Product added successfully:', result);
-    } catch (error) {
-      console.error('Error adding vehicle:', error);
-      throw new Error('Failed to add vehicle');
-    }
+    this.ensureConnection();
+    return this.db
+      ?.prepare(
+        `INSERT INTO vehicles (
+                name, description, price, createdBy, image,
+                make, model, year, mileage, fuelType,
+                transmission, engineSize, color, numberOfSeats,
+                numberOfDoors, wheelDrive, city, zipCode
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      )
+      .run(
+        name,
+        description,
+        price,
+        createdBy,
+        image,
+        make,
+        model,
+        year,
+        mileage,
+        fuelType,
+        transmission,
+        engineSize,
+        color,
+        numberOfSeats,
+        numberOfDoors,
+        wheelDrive,
+        city,
+        zipCode,
+      );
   }
 
-  public async updateVehicle(
+  public deleteVehicle(id: string) {
+    this.ensureConnection();
+    this.db?.prepare('DELETE FROM vehicles WHERE id = ?').run(id);
+  }
+
+  public updateVehicle(
     id: string,
     name: string,
     description: string,
     price: number,
+    image?: string,
+    make?: string,
+    model?: string,
+    year?: number,
+    mileage?: number,
+    fuelType?: string,
+    transmission?: string,
+    engineSize?: number,
+    color?: string,
+    numberOfSeats?: number,
+    numberOfDoors?: number,
+    wheelDrive?: string,
+    city?: string,
+    zipCode?: string,
   ) {
-    try {
-      const result = this.db
-        ?.prepare(
-          `
-                UPDATE vehicles
-                SET name = ?, description = ?, price = ?
-                WHERE id = ?
-            `,
-        )
-        .run(name, description, price, id);
-      if (result?.changes) {
-        return result?.changes > 0;
-      }
-    } catch (error) {
-      console.error('Error updating vehicle:', error);
-      throw new Error('Failed to update vehicle');
-    }
+    this.ensureConnection();
+    const query = image
+      ? `UPDATE vehicles SET name = ?, description = ?, price = ?, image = ?, make = ?, model = ?, year = ?, mileage = ?, fuelType = ?, transmission = ?, engineSize = ?, color = ?, numberOfSeats = ?, numberOfDoors = ?, wheelDrive = ?, city = ?, zipCode = ? WHERE id = ?`
+      : `UPDATE vehicles SET name = ?, description = ?, price = ?, make = ?, model = ?, year = ?, mileage = ?, fuelType = ?, transmission = ?, engineSize = ?, color = ?, numberOfSeats = ?, numberOfDoors = ?, wheelDrive = ?, city = ?, zipCode = ? WHERE id = ?`;
+
+    return this.db
+      ?.prepare(query)
+      .run(
+        image
+          ? [
+              name,
+              description,
+              price,
+              image,
+              make,
+              model,
+              year,
+              mileage,
+              fuelType,
+              transmission,
+              engineSize,
+              color,
+              numberOfSeats,
+              numberOfDoors,
+              wheelDrive,
+              city,
+              zipCode,
+              id,
+            ]
+          : [
+              name,
+              description,
+              price,
+              make,
+              model,
+              year,
+              mileage,
+              fuelType,
+              transmission,
+              engineSize,
+              color,
+              numberOfSeats,
+              numberOfDoors,
+              wheelDrive,
+              city,
+              zipCode,
+              id,
+            ],
+      );
   }
 }
 

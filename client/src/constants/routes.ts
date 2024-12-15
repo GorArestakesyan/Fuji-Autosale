@@ -1,7 +1,7 @@
 export const STACK_ROUTES = {
   HomeScreen: 'HomeScreen',
   MoreScreen: 'MoreScreen',
-  ShopScreen: 'ShopScreen',
+  ExploreScreen: 'ExploreScreen',
   SettingsSceen: 'SettingsSceen',
   ProductDetails: 'ProductDetails',
 } as const;

@@ -2,20 +2,20 @@ import { STACK_ROUTES } from '@constants/routes';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Box, Text } from '@styles/theme';
-import { TProduct } from '@types';
+import { TVehicle } from '@types';
 import React from 'react';
 import { Dimensions, Pressable } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { styles } from './Product.useStyles';
 
-interface IProduct {
-  product: TProduct;
+interface IVehicle {
+  vehicle: TVehicle;
 }
 
-export const ProductCard = ({ product }: IProduct) => {
+export const VehicleCard = ({ vehicle }: IVehicle) => {
   const { width } = Dimensions.get('screen');
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
-  const goToDetails = () => navigate(STACK_ROUTES.ProductDetails, { product });
+  const goToDetails = () => navigate(STACK_ROUTES.ProductDetails, { vehicle });
 
   return (
     <Pressable onPress={goToDetails}>
@@ -29,23 +29,29 @@ export const ProductCard = ({ product }: IProduct) => {
         borderRadius={'m'}>
         <FastImage
           source={{
-            uri: product?.thumbnail,
+            uri: `http://localhost:3010/uploads/${vehicle.image}`,
             priority: FastImage.priority.high,
           }}
-          resizeMode={FastImage.resizeMode.contain}
+          resizeMode={FastImage.resizeMode.cover}
           style={styles.avatar}
         />
 
         <Box pt={'m'}>
           <Text variant={'text16'} color={'textPrimary'}>
-            {product.title}
+            {vehicle.name}
+          </Text>
+          <Text variant={'text16'} color={'textPrimary'}>
+            {vehicle.make} {vehicle.model}
+          </Text>
+          <Text variant={'text16'} color={'textPrimary'}>
+            {vehicle.year}
           </Text>
           <Text
             letterSpacing={1}
             variant={'text18Bold'}
             my={'s'}
             color={'textSecondary'}>
-            ${product.price}
+            ${vehicle.price}
           </Text>
         </Box>
       </Box>
