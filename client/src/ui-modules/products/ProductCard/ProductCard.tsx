@@ -29,16 +29,22 @@ export const VehicleCard = ({ vehicle }: IVehicle) => {
         borderRadius={'m'}>
         <FastImage
           source={{
-            uri: vehicle?.thumbnail,
+            uri: `http://localhost:3010/uploads/${vehicle.image}`,
             priority: FastImage.priority.high,
           }}
-          resizeMode={FastImage.resizeMode.contain}
+          resizeMode={FastImage.resizeMode.cover}
           style={styles.avatar}
         />
 
         <Box pt={'m'}>
           <Text variant={'text16'} color={'textPrimary'}>
-            {vehicle.title}
+            {vehicle.name}
+          </Text>
+          <Text variant={'text16'} color={'textPrimary'}>
+            {vehicle.make} {vehicle.model}
+          </Text>
+          <Text variant={'text16'} color={'textPrimary'}>
+            {vehicle.year}
           </Text>
           <Text
             letterSpacing={1}

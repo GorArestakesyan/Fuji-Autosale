@@ -2,7 +2,7 @@ import { Box } from '@styles/theme';
 import { Products } from '@ui-modules/products';
 import React from 'react';
 
-const ShopScreen = () => {
+const ExploreScreen = () => {
   return (
     <Box flex={1} backgroundColor={'primary'}>
       <Products />
@@ -10,4 +10,4 @@ const ShopScreen = () => {
   );
 };
 
-export default ShopScreen;
+export default ExploreScreen;

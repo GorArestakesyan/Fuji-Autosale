@@ -63,7 +63,7 @@ type TSharedColors = {
 type THomeNavigationRoutes = {
   HomeScreen: undefined;
   MoreScreen: undefined;
-  ShopScreen: undefined;
+  ExploreScreen: undefined;
 };
 
 type TStackNavigationRoutes = (typeof STACK_ROUTES)[keyof typeof STACK_ROUTES];
@@ -128,7 +128,7 @@ type TVehicle = {
 type TVehicles = TVehicle[];
 
 type TRootStackParamList = {
-  ShopScreen: undefined;
+  ExploreScreen: undefined;
   MoreScreen: undefined;
   HomeScreen: undefined;
   MainScreen: undefined;

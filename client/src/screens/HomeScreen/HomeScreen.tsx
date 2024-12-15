@@ -1,20 +1,18 @@
+import Logo from '@assets/icons/svg/logo.svg';
+import { styles } from '@components/Header/Header.useStyles.ts';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Box, colors, Text } from '@styles/theme';
+import { Box, Text } from '@styles/theme';
 import { TRootStackParamList } from '@types';
 import { TopSales } from '@ui-modules/top-sales';
 import React from 'react';
-import { Dimensions, Pressable} from 'react-native';
-import { styles } from '@components/Header/Header.useStyles.ts';
-import Logo from '@assets/icons/svg/logo.svg';
+import { Dimensions, Pressable } from 'react-native';
 
-import ManageProducts from '@screens/Admin/ManageProducts';
 type Props = NativeStackScreenProps<TRootStackParamList, 'HomeScreen'>;
 
 const { width } = Dimensions.get('window');
 
 export const HomeScreen = ({ navigation }: Props) => {
-
-    return (
+  return (
     <Box flex={1} backgroundColor={'primary'}>
       <Box
         py={'m'}
@@ -30,15 +28,10 @@ export const HomeScreen = ({ navigation }: Props) => {
           FUJI Autosale
         </Text>
         <Pressable style={styles.iconButton}>
-          <Logo
-            height={34}
-            width={34}
-            style={styles.carIcon}
-          />
+          <Logo height={34} width={34} style={styles.carIcon} />
         </Pressable>
       </Box>
       <TopSales />
-    <ManageProducts/>
     </Box>
   );
 };

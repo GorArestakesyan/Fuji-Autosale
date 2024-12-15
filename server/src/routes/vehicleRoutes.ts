@@ -29,18 +29,74 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Delete a vehicle
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await vehicleModel.deleteVehicle(id);
+    if (Boolean(deleted)) {
+      res.status(200).send('Vehicle deleted successfully');
+    } else {
+      res.status(404).send('Vehicle not found');
+    }
+  } catch (error) {
+    console.error('Error deleting vehicle:', error);
+    res.status(500).send('Internal server error');
+  }
+});
+
 // Create a new vehicle
-/** @todo fix types */
 router.post('/', upload.single('image'), async (req: any, res: any) => {
-  const { name, description, price, createdBy } = req.body;
-  const image = req.file?.filename || ''; // Save uploaded file's name
+  const {
+    name,
+    description,
+    price,
+    createdBy,
+    make,
+    model,
+    year,
+    mileage,
+    fuelType,
+    transmission,
+    engineSize,
+    color,
+    numberOfSeats,
+    numberOfDoors,
+    wheelDrive,
+    city,
+    zipCode,
+  } = req.body;
+
+  const image = req.file?.filename || '';
 
   if (!name || !price || !createdBy) {
-    return res.status(400).send('Missing required fields: name, price, or createdBy');
+    return res
+      .status(400)
+      .send('Missing required fields: name, price, or createdBy');
   }
 
   try {
-    await vehicleModel.createVehicle(name, description, parseFloat(price), createdBy, image);
+    await vehicleModel.createVehicle(
+      name,
+      description,
+      parseFloat(price),
+      createdBy,
+      image,
+      make,
+      model,
+      parseInt(year),
+      parseFloat(mileage),
+      fuelType,
+      transmission,
+      parseFloat(engineSize),
+      color,
+      parseInt(numberOfSeats),
+      parseInt(numberOfDoors),
+      wheelDrive,
+      city,
+      zipCode,
+    );
+
     res.status(201).send('Vehicle created successfully');
   } catch (error) {
     console.error('Error creating vehicle:', error);
@@ -51,7 +107,6 @@ router.post('/', upload.single('image'), async (req: any, res: any) => {
 // Update a vehicle
 /** @todo fix types */
 router.put('/:id', async (req: any, res: any) => {
-
   const { id } = req.params;
   const { name, description, price } = req.body;
 
@@ -60,11 +115,15 @@ router.put('/:id', async (req: any, res: any) => {
   }
 
   try {
-    const updated = await vehicleModel.updateVehicle(id, name, description, parseFloat(price));
+    const updated = await vehicleModel.updateVehicle(
+      id,
+      name,
+      description,
+      parseFloat(price),
+    );
     if (updated) {
       res.send('Vehicle updated successfully');
     } else {
-
       res.status(404).send('Vehicle not found or no changes made');
     }
   } catch (error) {

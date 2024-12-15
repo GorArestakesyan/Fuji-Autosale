@@ -1,7 +1,7 @@
-import { HomeLogo, MoreLogo, ShopLogo } from '@assets/icons/components';
+import { ExploreLogo, HomeLogo, MoreLogo } from '@assets/icons/components';
 import { DrawerScreen } from '@screens/DrawerScreen';
+import ExploreScreen from '@screens/ExploreScreen';
 import { HomeScreen } from '@screens/HomeScreen';
-import ShopScreen from '@screens/ShopScreen/ShopScreen';
 import React from 'react';
 
 const useRoutes = () => {
@@ -13,10 +13,10 @@ const useRoutes = () => {
       screen: HomeScreen,
     },
     {
-      label: 'Shop',
-      name: 'ShopScreen',
-      logo: (focused: boolean) => <ShopLogo focused={focused} />,
-      screen: ShopScreen,
+      label: 'Explore',
+      name: 'ExploreScreen',
+      logo: (focused: boolean) => <ExploreLogo focused={focused} />,
+      screen: ExploreScreen,
     },
     {
       label: 'More',

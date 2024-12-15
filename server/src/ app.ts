@@ -1,11 +1,11 @@
 import express from 'express';
 import { connectDatabase } from './db/database';
-import productRoutes from './routes/vehicleRoutes';
+import vehiclesRoutes from './routes/vehicleRoutes';
 import { errorHandler } from './utils/errorHandler';
 
 export const app = express();
 app.use(express.json());
-app.use('/api/vehicles', productRoutes);
+app.use('/api/vehicles', vehiclesRoutes);
 app.use(errorHandler);
 
 (async () => {
